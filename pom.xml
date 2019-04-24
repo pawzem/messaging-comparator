@@ -12,7 +12,7 @@
     <artifactId>comparator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>comparator</name>
-    <description>comparizon between kafka and rabbit</description>
+    <description>comparison between kafka and rabbit</description>
 
     <properties>
         <java.version>12</java.version>
@@ -26,6 +26,16 @@
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
