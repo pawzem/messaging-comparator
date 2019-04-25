@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties(value = FileProperties.class)
-public class MessagesConfiguration {
+class MessagesConfiguration {
 }

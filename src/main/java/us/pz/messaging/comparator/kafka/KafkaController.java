@@ -13,7 +13,7 @@ import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @AllArgsConstructor
-public class KafkaController {
+class KafkaController {
     private final KafkaFacade kafkaFacade;
 
 
