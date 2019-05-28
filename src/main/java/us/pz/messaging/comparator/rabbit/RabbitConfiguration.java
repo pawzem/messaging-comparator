@@ -13,25 +13,25 @@ import java.util.List;
 @Configuration
 class RabbitConfiguration {
 
-    static final String topicExchangeName = "topic-exchange";
+    static final String TOPIC_EXCHANGE_NAME = "topic-exchange";
 
-    static final String topic1kbQueueName = "topic1kbQueueName";
-    static final String topic1MbQueueName = "topic1MbQueueName";
-    static final String topic10MbQueueName = "topic10MbQueueName";
-    static final String topic100MbQueueName = "topic100MbQueueName";
-    static final String topic1GbQueueName = "topic1GbQueueName";
+    static final String TOPIC_1_KB_QUEUE_NAME = "topic1kbQueueName";
+    static final String TOPIC_1_MB_QUEUE_NAME = "topic1MbQueueName";
+    static final String TOPIC_10_MB_QUEUE_NAME = "topic10MbQueueName";
+    static final String TOPIC_100_MB_QUEUE_NAME = "topic100MbQueueName";
+    static final String TOPIC_1_GB_QUEUE_NAME = "topic1GbQueueName";
 
 
     @Bean
     public List<Declarable> topicBindings() {
-        Queue topic1kbQueue = new Queue(topic1kbQueueName, true);
-        Queue topic1MbQueue = new Queue(topic1MbQueueName, true);
-        Queue topic10MbQueue = new Queue(topic10MbQueueName, true);
-        Queue topic100MbQueue = new Queue(topic100MbQueueName, true);
-        Queue topic1GbQueue = new Queue(topic1GbQueueName, true);
+        Queue topic1kbQueue = new Queue(TOPIC_1_KB_QUEUE_NAME, true);
+        Queue topic1MbQueue = new Queue(TOPIC_1_MB_QUEUE_NAME, true);
+        Queue topic10MbQueue = new Queue(TOPIC_10_MB_QUEUE_NAME, true);
+        Queue topic100MbQueue = new Queue(TOPIC_100_MB_QUEUE_NAME, true);
+        Queue topic1GbQueue = new Queue(TOPIC_1_GB_QUEUE_NAME, true);
 
 
-        TopicExchange topicExchange = new TopicExchange(topicExchangeName);
+        TopicExchange topicExchange = new TopicExchange(TOPIC_EXCHANGE_NAME);
 
         return Arrays.asList(
                 topic1kbQueue,
