@@ -33,7 +33,6 @@ class RabbitController {
 
     @PostMapping("/rabbit/1kb")
     ResponseEntity send1KbMessage() {
-        log.info("received http");
         rabbitFacade.send1KbMessage();
         return new ResponseEntity(OK);
     }
