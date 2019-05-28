@@ -10,27 +10,27 @@ import org.springframework.stereotype.Service;
 @Log4j2
 class KafkaListeners {
 
-    @KafkaListener(id = "1kb", topics = "test")
+    @KafkaListener(id = "1kb", topics = "single-partition-1kb")
     public void listen1kb(String message) {
         log.info("received 1kb message");
     }
 
-    @KafkaListener(id = "1Mb", topics = "test")
+    @KafkaListener(id = "1Mb", topics = "single-partition-1Mb")
     public void listen1Mb(String message) {
         log.info("received 1Mb message");
     }
 
-    @KafkaListener(id = "10Mb", topics = "test")
+    @KafkaListener(id = "10Mb", topics = "single-partition-10Mb")
     public void listen10Mb(String message) {
         log.info("received 10Mb message");
     }
 
-    @KafkaListener(id = "100Mb", topics = "test")
+    @KafkaListener(id = "100Mb", topics = "single-partition-100Mb")
     public void listen100Mb(String message) {
         log.info("received 100Mb message");
     }
 
-    @KafkaListener(id = "1Gb", topics = "test")
+    @KafkaListener(id = "1Gb", topics = "single-partition-1Gb")
     public void listen1Gb(String message) {
         log.info("received 1Gb message");
     }
