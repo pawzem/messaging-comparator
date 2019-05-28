@@ -2,6 +2,7 @@ package us.pz.messaging.comparator.rabbit;
 
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.hateoas.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import static org.springframework.http.HttpStatus.OK;
 
 @RestController
 @AllArgsConstructor
+@Slf4j
 class RabbitController {
 
     private final RabbitFacade rabbitFacade;
@@ -31,6 +33,7 @@ class RabbitController {
 
     @PostMapping("/rabbit/1kb")
     ResponseEntity send1KbMessage() {
+        log.info("received http");
         rabbitFacade.send1KbMessage();
         return new ResponseEntity(OK);
     }

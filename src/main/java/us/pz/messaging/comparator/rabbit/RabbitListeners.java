@@ -1,13 +1,13 @@
 package us.pz.messaging.comparator.rabbit;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-@Log4j2
+@Slf4j
 class RabbitListeners {
 
     @RabbitListener(queues = {RabbitConfiguration.TOPIC_1_KB_QUEUE_NAME})

@@ -1,14 +1,14 @@
 package us.pz.messaging.comparator.kafka;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import us.pz.messaging.comparator.messages.MessagesFacade;
 
 @Service
 @AllArgsConstructor
-@Log4j2
+@Slf4j
 class KafkaProducers {
     private KafkaTemplate<String, String> template;
     private MessagesFacade messagesFacade;
