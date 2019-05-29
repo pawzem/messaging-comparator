@@ -9,8 +9,6 @@ import java.nio.file.Files;
 @Service
 public class MessagesFacade {
 
-    private final FileRetriever fileRetriever;
-
     @Getter
     private final String message1Mb;
     @Getter
@@ -21,10 +19,12 @@ public class MessagesFacade {
     private final String message1Gb;
     @Getter
     private final String message1Kb;
+    @Getter
+    private final String message100Kb;
 
     public MessagesFacade(FileRetriever fileRetriever) throws IOException {
-        this.fileRetriever = fileRetriever;
         message1Kb = Files.readString(fileRetriever.get1KbFile().toPath());
+        message100Kb = Files.readString(fileRetriever.get100KbFile().toPath());
         message1Mb = Files.readString(fileRetriever.get1MbFile().toPath());
         message10Mb = Files.readString(fileRetriever.get10MbFile().toPath());
         message100Mb = Files.readString(fileRetriever.get100MbFile().toPath());

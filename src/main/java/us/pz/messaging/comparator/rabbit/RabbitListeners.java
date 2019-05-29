@@ -15,6 +15,11 @@ class RabbitListeners {
         log.info("received 1kb message");
     }
 
+    @RabbitListener(queues = {RabbitConfiguration.TOPIC_100_KB_QUEUE_NAME})
+    public void listen100kb(String message) {
+        log.info("received 100kb message");
+    }
+
     @RabbitListener(queues = {RabbitConfiguration.TOPIC_1_MB_QUEUE_NAME})
     public void listen1Mb(String message) {
         log.info("received 1Mb message");

@@ -21,6 +21,7 @@ class KafkaController {
     Resource getResources() {
         return new Resource<>("Kafka links",
                 linkTo(methodOn(KafkaController.class).send1KbMessage()).withSelfRel(),
+                linkTo(methodOn(KafkaController.class).send100KbMessage()).withSelfRel(),
                 linkTo(methodOn(KafkaController.class).send1MbMessage()).withSelfRel(),
                 linkTo(methodOn(KafkaController.class).send10MbMessage()).withSelfRel(),
                 linkTo(methodOn(KafkaController.class).send100MbMessage()).withSelfRel(),
@@ -31,6 +32,12 @@ class KafkaController {
     @PostMapping("/kafka/1kb")
     ResponseEntity send1KbMessage() {
         kafkaFacade.send1KbMessage();
+        return new ResponseEntity(OK);
+    }
+
+    @PostMapping("/kafka/100kb")
+    ResponseEntity send100KbMessage() {
+        kafkaFacade.send100KbMessage();
         return new ResponseEntity(OK);
     }
 

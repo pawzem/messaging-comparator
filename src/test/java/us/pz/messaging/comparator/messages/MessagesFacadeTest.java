@@ -75,4 +75,15 @@ class MessagesFacadeTest {
         //then
         assertEquals(1000, message1Kb.getBytes().length);
     }
+
+    @Test
+    void shouldReturnMessage100Kb() {
+        //given
+
+        //when
+        String message1Kb = messagesFacade.getMessage100Kb();
+
+        //then
+        assertEquals(100000, message1Kb.getBytes().length);
+    }
 }

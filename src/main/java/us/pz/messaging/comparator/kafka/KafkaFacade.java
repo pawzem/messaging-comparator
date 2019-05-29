@@ -12,6 +12,10 @@ public class KafkaFacade {
         kafkaProducers.send1KbMessage();
     }
 
+    public void send100KbMessage() {
+        kafkaProducers.send100KbMessage();
+    }
+
     public void send1MbMessage() {
         kafkaProducers.send1MbMessage();
     }

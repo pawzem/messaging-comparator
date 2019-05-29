@@ -16,6 +16,10 @@ class FileRetriever {
         return getFile(fileProperties.getFile1kb());
     }
 
+    public File get100KbFile() {
+        return getFile(fileProperties.getFile100kb());
+    }
+
     public File get1MbFile() {
         return getFile(fileProperties.getFile1mb());
     }

@@ -24,6 +24,7 @@ class RabbitController {
     Resource getResources() {
         return new Resource<>("Rabbit links",
                 linkTo(methodOn(RabbitController.class).send1KbMessage()).withSelfRel(),
+                linkTo(methodOn(RabbitController.class).send100KbMessage()).withSelfRel(),
                 linkTo(methodOn(RabbitController.class).send1MbMessage()).withSelfRel(),
                 linkTo(methodOn(RabbitController.class).send10MbMessage()).withSelfRel(),
                 linkTo(methodOn(RabbitController.class).send100MbMessage()).withSelfRel(),
@@ -34,6 +35,12 @@ class RabbitController {
     @PostMapping("/rabbit/1kb")
     ResponseEntity send1KbMessage() {
         rabbitFacade.send1KbMessage();
+        return new ResponseEntity(OK);
+    }
+
+    @PostMapping("/rabbit/100kb")
+    ResponseEntity send100KbMessage() {
+        rabbitFacade.send100KbMessage();
         return new ResponseEntity(OK);
     }
 
