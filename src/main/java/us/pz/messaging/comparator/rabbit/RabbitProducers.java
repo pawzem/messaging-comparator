@@ -20,6 +20,11 @@ class RabbitProducers {
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "rabbit.topic.1kb", messagesFacade.getMessage1Kb());
     }
 
+    public void send100KbMessage() {
+        log.info("sending 100kb message");
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "rabbit.topic.100kb", messagesFacade.getMessage1Kb());
+    }
+
     public void send1MbMessage() {
         log.info("sending 1mb message");
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "rabbit.topic.1Mb", messagesFacade.getMessage1Mb());
@@ -39,4 +44,5 @@ class RabbitProducers {
         log.info("sending 1gb message");
         rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, "rabbit.topic.1Gb", messagesFacade.getMessage1Gb());
     }
+
 }

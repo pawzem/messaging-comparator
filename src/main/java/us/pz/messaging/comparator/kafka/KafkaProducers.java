@@ -18,6 +18,11 @@ class KafkaProducers {
         template.send("single-partition-1kb", messagesFacade.getMessage1Kb());
     }
 
+    public void send100KbMessage() {
+        log.info("sending 1kb message");
+        template.send("single-partition-100kb", messagesFacade.getMessage100Kb());
+    }
+
     public void send1MbMessage() {
         log.info("sending 1mb message");
         template.send("single-partition-1Mb", messagesFacade.getMessage1Mb());

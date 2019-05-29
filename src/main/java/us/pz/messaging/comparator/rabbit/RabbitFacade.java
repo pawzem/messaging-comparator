@@ -13,6 +13,10 @@ public class RabbitFacade {
         rabbitProducers.send1KbMessage();
     }
 
+    public void send100KbMessage() {
+        rabbitProducers.send100KbMessage();
+    }
+
     public void send1MbMessage() {
         rabbitProducers.send1MbMessage();
 

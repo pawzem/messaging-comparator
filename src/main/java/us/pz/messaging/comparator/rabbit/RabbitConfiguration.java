@@ -16,6 +16,7 @@ class RabbitConfiguration {
     static final String TOPIC_EXCHANGE_NAME = "topic-exchange";
 
     static final String TOPIC_1_KB_QUEUE_NAME = "topic1kbQueueName";
+    static final String TOPIC_100_KB_QUEUE_NAME = "topic100kbQueueName";
     static final String TOPIC_1_MB_QUEUE_NAME = "topic1MbQueueName";
     static final String TOPIC_10_MB_QUEUE_NAME = "topic10MbQueueName";
     static final String TOPIC_100_MB_QUEUE_NAME = "topic100MbQueueName";
@@ -25,6 +26,7 @@ class RabbitConfiguration {
     @Bean
     public List<Declarable> topicBindings() {
         Queue topic1kbQueue = new Queue(TOPIC_1_KB_QUEUE_NAME, true);
+        Queue topic100kbQueue = new Queue(TOPIC_100_KB_QUEUE_NAME, true);
         Queue topic1MbQueue = new Queue(TOPIC_1_MB_QUEUE_NAME, true);
         Queue topic10MbQueue = new Queue(TOPIC_10_MB_QUEUE_NAME, true);
         Queue topic100MbQueue = new Queue(TOPIC_100_MB_QUEUE_NAME, true);
@@ -35,6 +37,7 @@ class RabbitConfiguration {
 
         return Arrays.asList(
                 topic1kbQueue,
+                topic100kbQueue,
                 topic1MbQueue,
                 topic10MbQueue,
                 topic100MbQueue,
@@ -43,6 +46,9 @@ class RabbitConfiguration {
                 BindingBuilder
                         .bind(topic1kbQueue)
                         .to(topicExchange).with("rabbit.topic.1kb"),
+                BindingBuilder
+                        .bind(topic1kbQueue)
+                        .to(topicExchange).with("rabbit.topic.100kb"),
                 BindingBuilder
                         .bind(topic1MbQueue)
                         .to(topicExchange).with("rabbit.topic.1Mb"),

@@ -15,6 +15,11 @@ class KafkaListeners {
         log.info("received 1kb message");
     }
 
+    @KafkaListener(id = "100kb", topics = "single-partition-100kb")
+    public void listen100kb(String message) {
+        log.info("received 100kb message");
+    }
+
     @KafkaListener(id = "1Mb", topics = "single-partition-1Mb")
     public void listen1Mb(String message) {
         log.info("received 1Mb message");
