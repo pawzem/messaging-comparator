@@ -40,5 +40,10 @@ class RabbitListeners {
         log.info("received 1Gb message");
     }
 
+    @RabbitListener(queues = {RabbitConfiguration.TOPIC_GROWING_QUEUE_NAME})
+    public void listenGrowing(String message) {
+        log.info("received growing message");
+    }
+
 
 }

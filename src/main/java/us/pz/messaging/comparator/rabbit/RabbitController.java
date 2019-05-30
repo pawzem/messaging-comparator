@@ -28,7 +28,8 @@ class RabbitController {
                 linkTo(methodOn(RabbitController.class).send1MbMessage()).withSelfRel(),
                 linkTo(methodOn(RabbitController.class).send10MbMessage()).withSelfRel(),
                 linkTo(methodOn(RabbitController.class).send100MbMessage()).withSelfRel(),
-                linkTo(methodOn(RabbitController.class).send1GbMessage()).withSelfRel()
+                linkTo(methodOn(RabbitController.class).send1GbMessage()).withSelfRel(),
+                linkTo(methodOn(RabbitController.class).sendGrowingMessage()).withSelfRel()
         );
     }
 
@@ -68,6 +69,13 @@ class RabbitController {
     @PostMapping("/rabbit/1gb")
     ResponseEntity send1GbMessage() {
         rabbitFacade.send1GbMessage();
+        return new ResponseEntity(OK);
+    }
+
+
+    @PostMapping("/rabbit/growing")
+    ResponseEntity sendGrowingMessage() {
+        rabbitFacade.sendGrowingMessages();
         return new ResponseEntity(OK);
     }
 

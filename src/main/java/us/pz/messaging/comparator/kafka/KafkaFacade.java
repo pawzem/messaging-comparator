@@ -2,11 +2,13 @@ package us.pz.messaging.comparator.kafka;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import us.pz.messaging.comparator.messages.MessagesFacade;
 
 @Service
 @AllArgsConstructor
 public class KafkaFacade {
     private final KafkaProducers kafkaProducers;
+    private final MessagesFacade messagesFacade;
 
     public void send1KbMessage() {
         kafkaProducers.send1KbMessage();
@@ -30,5 +32,9 @@ public class KafkaFacade {
 
     public void send1GbMessage() {
         kafkaProducers.send1GbMessage();
+    }
+
+    public void sendGrowingMessages() {
+        kafkaProducers.sendGrowingMessage();
     }
 }

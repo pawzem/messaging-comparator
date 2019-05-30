@@ -1,17 +1,18 @@
 package us.pz.messaging.comparator.kafka;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import us.pz.messaging.comparator.messages.MessagesFacade;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Slf4j
 class KafkaProducers {
-    private KafkaTemplate<String, String> template;
-    private MessagesFacade messagesFacade;
+    private final KafkaTemplate<String, String> template;
+    private final MessagesFacade messagesFacade;
+    private String message = "";
 
     public void send1KbMessage() {
         log.info("sending 1kb message");
@@ -41,6 +42,13 @@ class KafkaProducers {
     public void send1GbMessage() {
         log.info("sending 1gb message");
         template.send("single-partition-1Gb", messagesFacade.getMessage1Gb());
+    }
+
+    public void sendGrowingMessage() {
+        message += messagesFacade.getMessage1Kb();
+        log.info("sending growing message with length {}", message.length());
+        template.send("single-partition-growing", message);
+
     }
 
 }

@@ -40,5 +40,10 @@ class KafkaListeners {
         log.info("received 1Gb message");
     }
 
+    @KafkaListener(id = "growing", topics = "single-partition-growing")
+    public void listenGrowing(String message) {
+        log.info("received growing message");
+    }
+
 
 }
