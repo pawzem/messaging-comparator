@@ -25,7 +25,8 @@ class KafkaController {
                 linkTo(methodOn(KafkaController.class).send1MbMessage()).withSelfRel(),
                 linkTo(methodOn(KafkaController.class).send10MbMessage()).withSelfRel(),
                 linkTo(methodOn(KafkaController.class).send100MbMessage()).withSelfRel(),
-                linkTo(methodOn(KafkaController.class).send1GbMessage()).withSelfRel()
+                linkTo(methodOn(KafkaController.class).send1GbMessage()).withSelfRel(),
+                linkTo(methodOn(KafkaController.class).sendGrowingMessage()).withSelfRel()
         );
     }
 
@@ -65,6 +66,12 @@ class KafkaController {
     @PostMapping("/kafka/1gb")
     ResponseEntity send1GbMessage() {
         kafkaFacade.send1GbMessage();
+        return new ResponseEntity(OK);
+    }
+
+    @PostMapping("/kafka/growing")
+    ResponseEntity sendGrowingMessage() {
+        kafkaFacade.sendGrowingMessages();
         return new ResponseEntity(OK);
     }
 

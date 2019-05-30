@@ -21,6 +21,14 @@ class RabbitConfiguration {
     static final String TOPIC_10_MB_QUEUE_NAME = "topic10MbQueueName";
     static final String TOPIC_100_MB_QUEUE_NAME = "topic100MbQueueName";
     static final String TOPIC_1_GB_QUEUE_NAME = "topic1GbQueueName";
+    static final String TOPIC_GROWING_QUEUE_NAME = "topicGrowingQueueName";
+    static final String ROUTING_KEY_1_KB = "rabbit.topic.1kb";
+    static final String ROUTING_KEY_100_KB = "rabbit.topic.100kb";
+    static final String ROUTING_KEY_1_MB = "rabbit.topic.1Mb";
+    static final String ROUTING_KEY_10_MB = "rabbit.topic.10Mb";
+    static final String ROUTING_KEY_100_MB = "rabbit.topic.100Mb";
+    static final String ROUTING_KEY_1_GB = "rabbit.topic.1Gb";
+    static final String ROUTING_KEY_GROWING = "rabbit.topic.growing";
 
 
     @Bean
@@ -31,6 +39,7 @@ class RabbitConfiguration {
         Queue topic10MbQueue = new Queue(TOPIC_10_MB_QUEUE_NAME, true);
         Queue topic100MbQueue = new Queue(TOPIC_100_MB_QUEUE_NAME, true);
         Queue topic1GbQueue = new Queue(TOPIC_1_GB_QUEUE_NAME, true);
+        Queue topicGrowingQueue = new Queue(TOPIC_GROWING_QUEUE_NAME, true);
 
 
         TopicExchange topicExchange = new TopicExchange(TOPIC_EXCHANGE_NAME);
@@ -42,24 +51,28 @@ class RabbitConfiguration {
                 topic10MbQueue,
                 topic100MbQueue,
                 topic1GbQueue,
+                topicGrowingQueue,
                 topicExchange,
                 BindingBuilder
                         .bind(topic1kbQueue)
-                        .to(topicExchange).with("rabbit.topic.1kb"),
+                        .to(topicExchange).with(ROUTING_KEY_1_KB),
                 BindingBuilder
                         .bind(topic1kbQueue)
-                        .to(topicExchange).with("rabbit.topic.100kb"),
+                        .to(topicExchange).with(ROUTING_KEY_100_KB),
                 BindingBuilder
                         .bind(topic1MbQueue)
-                        .to(topicExchange).with("rabbit.topic.1Mb"),
+                        .to(topicExchange).with(ROUTING_KEY_1_MB),
                 BindingBuilder
                         .bind(topic10MbQueue)
-                        .to(topicExchange).with("rabbit.topic.10Mb"),
+                        .to(topicExchange).with(ROUTING_KEY_10_MB),
                 BindingBuilder
                         .bind(topic100MbQueue)
-                        .to(topicExchange).with("rabbit.topic.100Mb"),
+                        .to(topicExchange).with(ROUTING_KEY_100_MB),
                 BindingBuilder
                         .bind(topic1GbQueue)
-                        .to(topicExchange).with("rabbit.topic.1Gb"));
+                        .to(topicExchange).with(ROUTING_KEY_1_GB),
+                BindingBuilder
+                        .bind(topicGrowingQueue)
+                        .to(topicExchange).with(ROUTING_KEY_GROWING));
     }
 }

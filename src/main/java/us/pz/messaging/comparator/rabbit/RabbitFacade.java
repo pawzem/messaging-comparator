@@ -2,12 +2,14 @@ package us.pz.messaging.comparator.rabbit;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import us.pz.messaging.comparator.messages.MessagesFacade;
 
 @AllArgsConstructor
 @Service
 public class RabbitFacade {
 
     private final RabbitProducers rabbitProducers;
+    private final MessagesFacade messagesFacade;
 
     public void send1KbMessage() {
         rabbitProducers.send1KbMessage();
@@ -33,5 +35,9 @@ public class RabbitFacade {
 
     public void send1GbMessage() {
         rabbitProducers.send1GbMessage();
+    }
+
+    public void sendGrowingMessages() {
+        rabbitProducers.sendGrowingMessage();
     }
 }
