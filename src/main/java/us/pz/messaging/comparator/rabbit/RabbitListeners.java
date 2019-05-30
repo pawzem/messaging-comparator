@@ -10,37 +10,37 @@ import org.springframework.stereotype.Service;
 @Slf4j
 class RabbitListeners {
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_1_KB_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queue1kb}"})
     public void listen1kb(String message) {
         log.info("received 1kb message");
     }
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_100_KB_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queue100kb}"})
     public void listen100kb(String message) {
         log.info("received 100kb message");
     }
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_1_MB_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queue1mb}"})
     public void listen1Mb(String message) {
         log.info("received 1Mb message");
     }
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_10_MB_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queue10mb}"})
     public void listen10Mb(String message) {
         log.info("received 10Mb message");
     }
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_100_MB_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queue100mb}"})
     public void listen100Mb(String message) {
         log.info("received 100Mb message");
     }
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_1_GB_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queue1gb}"})
     public void listen1Gb(String message) {
         log.info("received 1Gb message");
     }
 
-    @RabbitListener(queues = {RabbitConfiguration.TOPIC_GROWING_QUEUE_NAME})
+    @RabbitListener(queues = {"${exchange.queueGrowing}"})
     public void listenGrowing(String message) {
         log.info("received growing message");
     }
